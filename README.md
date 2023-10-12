@@ -11,7 +11,7 @@ With this project, users can track an unlimited amount of
 clothing in their closet with the description of items they input manually. The user must
 type in a **specific item** to make this app accurate, e.g. Sculpt Knit
 V-neck Tank Top from Aritzia. The fields of each *clothing* include
-**tops, bottoms, jackets, shorts, shoes, dresses/suits, accessories.**
+**tops, bottoms, jackets, shoes, dresses/suits, accessories.**
 
 I am passionate in this project as I have always been interested in fashion and as I embarked in the Business and 
 Computer Science programme
@@ -33,3 +33,4 @@ track and manage my clothing collection.
 - I want to be able to sort the clothes in my closet in each category.
 - I want to check if I have a similar clothing piece in my closet
 - I want to know the number of clothes I have in each category.
+- I want to see the tops/ formal wear I have of a certain colour.
