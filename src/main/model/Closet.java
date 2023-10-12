@@ -76,7 +76,6 @@ public class Closet {
     }
 
     // EFFECTS: it removes clothing item from a given list
-    @SuppressWarnings({"checkstyle:NeedBraces", "checkstyle:SuppressWarnings"})
     public void removeClothingItemHelper(String description, LinkedList<ClothingItem> category) {
         for (ClothingItem c : category)
             if (c.getDescription().contentEquals(description)) {
@@ -161,7 +160,6 @@ public class Closet {
                 sameColourTops.add(c);
             }
         }
-        System.out.println(sameColourTops);
         return sameColourTops;
     }
 

@@ -18,6 +18,7 @@ public class ClothingItemTest {
 
         assertEquals(description.toUpperCase(), item.getDescription());
         assertEquals(colour.toUpperCase(), item.getColour());
+        assertEquals(size.toUpperCase(), item.getSize());
         assertEquals(brand.toUpperCase(), item.getBrand());
         assertEquals(category.toUpperCase(), item.getCategory());
     }
