@@ -17,7 +17,7 @@ public class ClosetApp {
     }
 
     // customises the closet by asking the users name
-    @SuppressWarnings("checkstyle:MethodLength")
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public void start() {
         System.out.println("Please enter your name: ");
         String userName = scanner.nextLine();

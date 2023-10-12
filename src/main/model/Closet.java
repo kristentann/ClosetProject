@@ -1,7 +1,6 @@
 package model;
 
 import java.util.LinkedList;
-import java.util.Objects;
 
 public class Closet {
 
@@ -76,6 +75,7 @@ public class Closet {
     }
 
     // EFFECTS: it removes clothing item from a given list
+    @SuppressWarnings({"checkstyle:NeedBraces", "checkstyle:SuppressWarnings"})
     public void removeClothingItemHelper(String description, LinkedList<ClothingItem> category) {
         for (ClothingItem c : category)
             if (c.getDescription().contentEquals(description)) {
