@@ -144,7 +144,7 @@ public class Closet {
             if (c.getDescription().contentEquals(description)) {
                 return true;
             }
-
+            return false;
         }
         return false;
     }

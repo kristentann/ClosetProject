@@ -54,7 +54,7 @@ public class ClosetApp {
             }
         }
 
-        System.out.println("Thanks for using" + userName + "'s closet App");
+        System.out.println("Thanks for using " + userName + "'s closet App");
     }
 
 
@@ -80,7 +80,7 @@ public class ClosetApp {
         String size = scanner.nextLine();
         System.out.println("Enter clothing brand:");
         String brand = scanner.nextLine();
-        System.out.println("Enter clothing category (Tops, Bottoms, Shoes, Accessories, Jackets):");
+        System.out.println("Enter clothing category (Tops, Bottoms, Shoes, Formal, Accessories, Jackets):");
         String category = scanner.nextLine();
 
         ClothingItem item = new ClothingItem(description, colour, size, brand, category);
@@ -116,7 +116,7 @@ public class ClosetApp {
         System.out.println("Enter clothing category (Tops, Bottoms, Shoes, Accessories, Jackets):");
         String category = scanner.nextLine();
 
-        boolean hasSimilarItem = closet.hasSimilarItem(description, category);
+        boolean hasSimilarItem = closet.hasSimilarItem(description.toUpperCase(), category);
         if (hasSimilarItem) {
             System.out.println("A similar item exists in the closet.");
         } else {
