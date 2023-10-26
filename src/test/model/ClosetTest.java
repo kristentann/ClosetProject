@@ -57,17 +57,17 @@ public class ClosetTest {
     @Test
     public void testRemoveClothingItem() {
         ClothingItem item1 = new ClothingItem("High Neck Cropped Tank", "White"
-                , "Small", "Oak and Fort", "Tops");
+                , "Small", "Oak and Fort", "TOPS");
         ClothingItem item2 = new ClothingItem("Maxi Skirt with back slit", "Olive green",
-                "Medium", "Oak and Fort", "Bottoms");
+                "Medium", "Oak and Fort", "BOTTOMS");
         ClothingItem item3 = new ClothingItem("550s", "White with juniper", "8.5",
-                "New Balance", "Shoes");
+                "New Balance", "SHOES");
         ClothingItem item4 = new ClothingItem("KERWIN MAXI DRESS BLACK", "Black",
-                "8.5", "Princess Polly", "Formal");
+                "8.5", "Princess Polly", "FORMAL");
         ClothingItem item5 = new ClothingItem("Blue Double Heart Tag Pendant", "Silver",
-                "Small", "Tiffany and Co", "Accessories");
+                "Small", "Tiffany and Co", "ACCESSORIES");
         ClothingItem item6 = new ClothingItem("Slim Fit Define Jacket", "Black",
-                "Medium", "Lululemon", "Jackets");
+                "Medium", "Lululemon", "JACKETS");
 
 
         closet.addClothingItem(item1);
@@ -79,7 +79,7 @@ public class ClosetTest {
 
         // TOPS:
         // Test removing item
-        closet.removeClothingItem("HIGH NECK CROPPED TANK", "Tops");
+        closet.removeClothingItem("HIGH NECK CROPPED TANK", "TOPS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -88,7 +88,7 @@ public class ClosetTest {
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
         // Test removing from the wrong category
-        closet.removeClothingItem("Maxi Skirt with back slit", "Tops");
+        closet.removeClothingItem("Maxi Skirt with back slit", "TOPS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -98,7 +98,7 @@ public class ClosetTest {
 
         // BOTTOMS:
         // Test removing item
-        closet.removeClothingItem("MAXI SKIRT WITH BACK SLIT", "Bottoms");
+        closet.removeClothingItem("MAXI SKIRT WITH BACK SLIT", "BOTTOMS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -107,7 +107,7 @@ public class ClosetTest {
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
         // Test removing from the wrong category
-        closet.removeClothingItem("High Neck Cropped Tank", "Bottoms");
+        closet.removeClothingItem("High Neck Cropped Tank", "BOTTOMS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -117,7 +117,7 @@ public class ClosetTest {
 
         // SHOES:
         // Test removing item
-        closet.removeClothingItem("550S", "Shoes");
+        closet.removeClothingItem("550S", "SHOES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -126,7 +126,7 @@ public class ClosetTest {
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
         // Test removing from the wrong category
-        closet.removeClothingItem("High Neck Cropped Tank", "Shoes");
+        closet.removeClothingItem("High Neck Cropped Tank", "SHOES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -136,7 +136,7 @@ public class ClosetTest {
 
         // FORMAL:
         // Test removing item
-        closet.removeClothingItem("KERWIN MAXI DRESS BLACK", "Formal");
+        closet.removeClothingItem("KERWIN MAXI DRESS BLACK", "FORMAL");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -145,7 +145,7 @@ public class ClosetTest {
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
         // Test removing from wrong category
-        closet.removeClothingItem("KERWIN MAXI DRESS BLACK", "Jackets");
+        closet.removeClothingItem("KERWIN MAXI DRESS BLACK", "JACKETS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -156,7 +156,7 @@ public class ClosetTest {
 
         // ACCESSORIES:
         // Test removing item
-        closet.removeClothingItem("BLUE DOUBLE HEART TAG PENDANT", "Accessories");
+        closet.removeClothingItem("BLUE DOUBLE HEART TAG PENDANT", "ACCESSORIES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -165,7 +165,7 @@ public class ClosetTest {
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
         // Test removing from the wrong category
-        closet.removeClothingItem("High Neck Cropped Tank", "Accessories");
+        closet.removeClothingItem("High Neck Cropped Tank", "ACCESSORIES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -175,7 +175,7 @@ public class ClosetTest {
 
         // JACKETS:
         // TEST REMOVING ITEM
-        closet.removeClothingItem("SLIM FIT DEFINE JACKET", "Jackets");
+        closet.removeClothingItem("SLIM FIT DEFINE JACKET", "JACKETS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -183,7 +183,7 @@ public class ClosetTest {
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.ACCESSORIES));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
-        closet.removeClothingItem("High Neck Cropped Tank", "Jackets");
+        closet.removeClothingItem("High Neck Cropped Tank", "JACKETS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -196,9 +196,9 @@ public class ClosetTest {
     @Test
     public void testAddingMultipleItemsToTops() {
         ClothingItem item1 = new ClothingItem("Cropped Tank", "White", "Small",
-                "Brandy Melville", "Tops");
+                "Brandy Melville", "TOPS");
         ClothingItem item2 = new ClothingItem("Sleeveless Blouse", "Blue",
-                "Medium", "SM", "Tops");
+                "Medium", "SM", "TOPS");
 
         closet.addClothingItem(item1);
         closet.addClothingItem(item2);
@@ -216,9 +216,9 @@ public class ClosetTest {
     public void testAddingMultipleItemsToBottoms() {
 
         ClothingItem item3 = new ClothingItem("Maxi Skirt with back slit", "Olive green",
-                "Medium", "Oak and Fort", "Bottoms");
+                "Medium", "Oak and Fort", "BOTTOMS");
         ClothingItem item4 = new ClothingItem("Denim Jeans", "Blue", "28",
-                "Brand D", "Bottoms");
+                "Brand D", "BOTTOMS");
 
 
         closet.addClothingItem(item3);
@@ -238,9 +238,9 @@ public class ClosetTest {
     public void testAddingMultipleItemsToShoes() {
 
         ClothingItem item3 = new ClothingItem("550s", "White with juniper", "8.5",
-                "New Balance", "Shoes");
+                "New Balance", "SHOES");
         ClothingItem item4 = new ClothingItem("Panda Jordans", "Black and White", "8.5",
-                "Nike", "Shoes");
+                "Nike", "SHOES");
 
         closet.addClothingItem(item3);
         closet.addClothingItem(item4);
@@ -257,9 +257,9 @@ public class ClosetTest {
     @Test
     public void testAddingMultipleItemsToFormal() {
         ClothingItem item4 = new ClothingItem("KERWIN MAXI DRESS BLACK", "Black",
-                "8.5", "Princess Polly", "Formal");
+                "8.5", "Princess Polly", "FORMAL");
         ClothingItem item5 = new ClothingItem("Maxi Satin Dress With Back Cowl", "Silver",
-                "Small", "Meshki", "Formal");
+                "Small", "Meshki", "FORMAL");
 
         closet.addClothingItem(item4);
         closet.addClothingItem(item5);
@@ -276,9 +276,9 @@ public class ClosetTest {
     @Test
     public void testAddingMultipleItemsToAccessories() {
         ClothingItem item3 = new ClothingItem("Blue Double Heart Tag Pendant", "Silver",
-                "Small", "Tiffany and Co", "Accessories");
+                "Small", "Tiffany and Co", "ACCESSORIES");
         ClothingItem item4 = new ClothingItem("Earrings", "Gold",
-                "Small", "Tiffany and Co", "Accessories");
+                "Small", "Tiffany and Co", "ACCESSORIES");
 
         closet.addClothingItem(item3);
         closet.addClothingItem(item4);
@@ -296,9 +296,9 @@ public class ClosetTest {
     @Test
     public void testAddingMultipleItemsToJackets() {
         ClothingItem item3 = new ClothingItem("Slim Fit Define Jacket", "Black",
-                "Medium", "Lululemon", "Jackets");
+                "Medium", "Lululemon", "JACKETS");
         ClothingItem item4 = new ClothingItem("Denim Jacket", "Washed Blue",
-                "Medium", "Levi's", "Jackets");
+                "Medium", "Levi's", "JACKETS");
 
 
         closet.addClothingItem(item3);
@@ -318,17 +318,17 @@ public class ClosetTest {
     @Test
     public void testForJacketsSoNotLast() {
         ClothingItem item1 = new ClothingItem("High Neck Cropped Tank", "White"
-                , "Small", "Oak and Fort", "Tops");
+                , "Small", "Oak and Fort", "TOPS");
         ClothingItem item2 = new ClothingItem("Maxi Skirt with back slit", "Olive green",
-                "Medium", "Oak and Fort", "Bottoms");
+                "Medium", "Oak and Fort", "BOTTOMS");
         ClothingItem item3 = new ClothingItem("550s", "White with juniper", "8.5",
-                "New Balance", "Shoes");
+                "New Balance", "SHOES");
         ClothingItem item4 = new ClothingItem("Maxi Satin Dress With Back Cowl", "Silver",
-                "Small", "Meshki", "Formal");
+                "Small", "Meshki", "FORMAL");
         ClothingItem item5 = new ClothingItem("Slim Fit Define Jacket", "Black",
-                "Medium", "Lululemon", "Jackets");
+                "Medium", "Lululemon", "JACKETS");
         ClothingItem item6 = new ClothingItem("Blue Double Heart Tag Pendant", "Silver",
-                "Small", "Tiffany and Co", "Accessories");
+                "Small", "Tiffany and Co", "ACCESSORIES");
 
         closet.addClothingItem(item1);
         closet.addClothingItem(item2);
@@ -339,7 +339,7 @@ public class ClosetTest {
 
         // TOPS:
         // Test removing item
-        closet.removeClothingItem("HIGH NECK CROPPED TANK", "Tops");
+        closet.removeClothingItem("HIGH NECK CROPPED TANK", "TOPS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -348,7 +348,7 @@ public class ClosetTest {
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
         // Test removing from the wrong category
-        closet.removeClothingItem("Maxi Skirt with back slit", "Tops");
+        closet.removeClothingItem("Maxi Skirt with back slit", "TOPS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -358,7 +358,7 @@ public class ClosetTest {
 
         // BOTTOMS:
         // Test removing item
-        closet.removeClothingItem("MAXI SKIRT WITH BACK SLIT", "Bottoms");
+        closet.removeClothingItem("MAXI SKIRT WITH BACK SLIT", "BOTTOMS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -367,7 +367,7 @@ public class ClosetTest {
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
         // Test removing from the wrong category
-        closet.removeClothingItem("High Neck Cropped Tank", "Bottoms");
+        closet.removeClothingItem("High Neck Cropped Tank", "BOTTOMS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -377,7 +377,7 @@ public class ClosetTest {
 
         // SHOES:
         // Test removing item
-        closet.removeClothingItem("550S", "Shoes");
+        closet.removeClothingItem("550S", "SHOES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -386,7 +386,7 @@ public class ClosetTest {
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
         // Test removing from the wrong category
-        closet.removeClothingItem("High Neck Cropped Tank", "Shoes");
+        closet.removeClothingItem("High Neck Cropped Tank", "SHOES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -396,7 +396,7 @@ public class ClosetTest {
 
         // FORMAL:
         // Test removing item
-        closet.removeClothingItem("MAXI SATIN DRESS WITH BACK COWL", "Formal");
+        closet.removeClothingItem("MAXI SATIN DRESS WITH BACK COWL", "FORMAL");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -404,7 +404,7 @@ public class ClosetTest {
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.ACCESSORIES));
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
-        closet.removeClothingItem("Maxi Satin Dress With Back Cowl", "Shoes");
+        closet.removeClothingItem("Maxi Satin Dress With Back Cowl", "SHOES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -414,7 +414,7 @@ public class ClosetTest {
 
         // ACCESSORIES:
         // Test removing item
-        closet.removeClothingItem("SLIM FIT DEFINE JACKET", "Jackets");
+        closet.removeClothingItem("SLIM FIT DEFINE JACKET", "JACKETS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -423,7 +423,7 @@ public class ClosetTest {
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.ACCESSORIES));
 
         // Test removing from the wrong category
-        closet.removeClothingItem("High Neck Cropped Tank", "Jackets");
+        closet.removeClothingItem("High Neck Cropped Tank", "JACKETS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -433,7 +433,7 @@ public class ClosetTest {
 
         // JACKETS:
         // TEST REMOVING ITEM
-        closet.removeClothingItem("BLUE DOUBLE HEART TAG PENDANT", "Accessories");
+        closet.removeClothingItem("BLUE DOUBLE HEART TAG PENDANT", "ACCESSORIES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -441,7 +441,7 @@ public class ClosetTest {
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.JACKETS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.ACCESSORIES));
 
-        closet.removeClothingItem("High Neck Cropped Tank", "Accessories");
+        closet.removeClothingItem("High Neck Cropped Tank", "ACCESSORIES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
@@ -455,47 +455,47 @@ public class ClosetTest {
     @Test
     public void testRemovingNonExistentItem() {
         ClothingItem item1 = new ClothingItem("High Neck Cropped Tank", "White"
-                , "Small", "Oak and Fort", "Tops");
+                , "Small", "Oak and Fort", "TOPS");
         ClothingItem item2 = new ClothingItem("Maxi Skirt with back slit", "Olive green",
-                "Medium", "Oak and Fort", "Bottoms");
+                "Medium", "Oak and Fort", "BOTTOMS");
         ClothingItem item3 = new ClothingItem("550s", "White with juniper", "8.5",
-                "New Balance", "Shoes");
+                "New Balance", "SHOES");
         ClothingItem item4 = new ClothingItem("Maxi Satin Dress With Back Cowl", "Silver",
-                "Small", "Meshki", "Formal");
+                "Small", "Meshki", "FORMAL");
         ClothingItem item5 = new ClothingItem("Blue Double Heart Tag Pendant", "Silver",
-                "Small", "Tiffany and Co", "Accessories");
+                "Small", "Tiffany and Co", "ACCESSORIES");
         ClothingItem item6 = new ClothingItem("Slim Fit Define Jacket", "Black",
-                "Medium", "Lululemon", "Jackets");
+                "Medium", "Lululemon", "JACKETS");
 
 
         // TOPS
         closet.addClothingItem(item1);
-        closet.removeClothingItem("Hat", "Tops");
+        closet.removeClothingItem("Hat", "TOPS");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.TOPS));
 
         // BOTTOMS:
         closet.addClothingItem(item2);
-        closet.removeClothingItem("Hat", "Bottoms");
+        closet.removeClothingItem("Hat", "BOTTOMS");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
 
         // SHOES:
         closet.addClothingItem(item3);
-        closet.removeClothingItem("Hat", "Shoes");
+        closet.removeClothingItem("Hat", "SHOES");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.SHOES));
 
         // FORMAL:
         closet.addClothingItem(item4);
-        closet.removeClothingItem("Hat", "Formal");
+        closet.removeClothingItem("Hat", "FORMAL");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.FORMAL));
 
         // Accessories:
         closet.addClothingItem(item5);
-        closet.removeClothingItem("Hat", "Accessories");
+        closet.removeClothingItem("Hat", "ACCESSORIES");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.ACCESSORIES));
 
         // Jackets:
         closet.addClothingItem(item6);
-        closet.removeClothingItem("Hat", "Jackets");
+        closet.removeClothingItem("Hat", "JACKETS");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
 
@@ -503,22 +503,22 @@ public class ClosetTest {
 
     @Test
     public void testRemovingItemsFromAnEmptyCategory() {
-        closet.removeClothingItem("T-shirt", "Tops");
+        closet.removeClothingItem("T-shirt", "TOPS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.TOPS));
 
-        closet.removeClothingItem("Jeans", "Bottoms");
+        closet.removeClothingItem("Jeans", "BOTTOMS");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
 
-        closet.removeClothingItem("550s", "Shoes");
+        closet.removeClothingItem("550s", "SHOES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.SHOES));
 
-        closet.removeClothingItem("Suit", "Formal");
+        closet.removeClothingItem("Suit", "FORMAL");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.FORMAL));
 
-        closet.removeClothingItem("Hat", "Accessories");
+        closet.removeClothingItem("Hat", "ACCESSORIES");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.ACCESSORIES));
 
-        closet.removeClothingItem("Denim Jacket", "Jacket");
+        closet.removeClothingItem("Denim Jacket", "JACKET");
         assertEquals(0, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
 
@@ -527,17 +527,17 @@ public class ClosetTest {
     @Test
     public void testRemovingNonExistentItemsFromACategory() {
         ClothingItem item1 = new ClothingItem("High Neck Cropped Tank", "White"
-                , "Small", "Oak and Fort", "Tops");
+                , "Small", "Oak and Fort", "TOPS");
         ClothingItem item2 = new ClothingItem("Maxi Skirt with back slit", "Olive green",
-                "Medium", "Oak and Fort", "Bottoms");
+                "Medium", "Oak and Fort", "BOTTOMS");
         ClothingItem item3 = new ClothingItem("550s", "White with juniper", "8.5",
-                "New Balance", "Shoes");
+                "New Balance", "SHOES");
         ClothingItem item4 = new ClothingItem("Maxi Satin Dress With Back Cowl", "Silver",
-                "Small", "Meshki", "Formal");
+                "Small", "Meshki", "FORMAL");
         ClothingItem item5 = new ClothingItem("Blue Double Heart Tag Pendant", "Silver",
-                "Small", "Tiffany and Co", "Accessories");
+                "Small", "Tiffany and Co", "ACCESSORIES");
         ClothingItem item6 = new ClothingItem("Slim Fit Define Jacket", "Black",
-                "Medium", "Lululemon", "Jackets");
+                "Medium", "Lululemon", "JACKETS");
 
         closet.addClothingItem(item1);
         closet.addClothingItem(item2);
@@ -546,22 +546,22 @@ public class ClosetTest {
         closet.addClothingItem(item5);
         closet.addClothingItem(item6);
 
-        closet.removeClothingItem("T-shirt", "Tops");
+        closet.removeClothingItem("T-shirt", "TOPS");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.TOPS));
 
-        closet.removeClothingItem("Jeans", "Bottoms");
+        closet.removeClothingItem("Jeans", "BOTTOMS");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.BOTTOMS));
 
-        closet.removeClothingItem("550s", "Shoes");
+        closet.removeClothingItem("550s", "SHOES");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.SHOES));
 
-        closet.removeClothingItem("Suit", "Formal");
+        closet.removeClothingItem("Suit", "FORMAL");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.FORMAL));
 
-        closet.removeClothingItem("Hat", "Accessories");
+        closet.removeClothingItem("Hat", "ACCESSORIES");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.ACCESSORIES));
 
-        closet.removeClothingItem("Denim Jacket", "Jacket");
+        closet.removeClothingItem("Denim Jacket", "JACKETS");
         assertEquals(1, closet.numberOfClothingInCategory(ClothingType.JACKETS));
 
     }
