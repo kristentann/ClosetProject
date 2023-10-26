@@ -3,16 +3,26 @@ package ui;
 import model.Closet;
 import model.ClothingItem;
 import model.ClothingType;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ClosetApp {
+    private static final String JSON_STORE = "./data/closetData.json";
     private Closet closet;
     private final Scanner scanner;
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
     public ClosetApp() {
         closet = new Closet("My Closet ");
         scanner = new Scanner(System.in);
+        jsonReader = new JsonReader(JSON_STORE);
+        jsonWriter = new JsonWriter(JSON_STORE);
         start();
     }
 
@@ -47,6 +57,12 @@ public class ClosetApp {
                     printAllSameColourTops();
                     break;
                 case 6:
+                    saveCloset();
+                    break;
+                case 7:
+                    loadCloset();
+                    break;
+                case 8:
                     running = false;
                     break;
                 default:
@@ -66,7 +82,9 @@ public class ClosetApp {
         System.out.println("3. Check the number of clothing items in a category");
         System.out.println("4. Check if a similar item exists");
         System.out.println("5. Check all the tops with the same colour");
-        System.out.println("6. Exit");
+        System.out.println("6. Save Closet to file");
+        System.out.println("7. Load Closet from file");
+        System.out.println("8. Exit");
         System.out.print("Enter your choice: ");
     }
 
@@ -133,10 +151,28 @@ public class ClosetApp {
         }
     }
 
-    public static void main(String[] args) {
-        ClosetApp closetApp = new ClosetApp();
-        closetApp.start();
+    // EFFECTS: saves the closet to file
+    private void saveCloset() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(closet);
+            jsonWriter.close();
+            System.out.println("Saved " + closet.getNameOfCloset() + " to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
     }
 
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void loadCloset() {
+        try {
+            closet = jsonReader.read();
+            System.out.println("Loaded " + closet.getNameOfCloset() + " from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
+
+    }
 }
 

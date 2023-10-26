@@ -1,6 +1,9 @@
 package model;
 
-public class ClothingItem {
+import org.json.JSONObject;
+import persistence.Writable;
+
+public class ClothingItem implements Writable {
     private String description;
     private String colour;
     private String size;
@@ -43,6 +46,20 @@ public class ClothingItem {
     public String getCategory() {
 
         return category;
+    }
+
+    // EFFECTS: converts the clothingItem components into a JSON object, then returns it
+    @Override
+    public JSONObject toJson() {
+        JSONObject jsonObj = new JSONObject();
+
+        jsonObj.put("description", this.description);
+        jsonObj.put("colour", this.colour);
+        jsonObj.put("size", this.size);
+        jsonObj.put("brand", this.brand);
+        jsonObj.put("category", this.category);
+
+        return jsonObj;
     }
 }
 

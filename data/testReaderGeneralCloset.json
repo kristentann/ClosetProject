@@ -1,0 +1,101 @@
+{
+  "tops" : [
+    {
+      "description": "tie strap bustier",
+      "colour": "black",
+      "size": "small",
+      "brand": "garage",
+      "category": "tops"
+    },
+    {
+      "description": "rehna top",
+      "colour": "white",
+      "size": "small",
+      "brand": "princess polly",
+      "category": "tops"
+    }
+  ],
+  "bottoms" : [
+    {
+      "description": "basic jogging pants",
+      "colour": "grey",
+      "size": "small",
+      "brand": "zara",
+      "category": "bottoms"
+    },
+    {
+      "description": "wide-leg pants",
+      "colour": "black",
+      "size": "4",
+      "brand": "hollister",
+      "category": "bottoms"
+    }
+  ],
+  "shoes" : [
+    {
+      "description": "dunks",
+      "colour": "panda",
+      "size": "38",
+      "brand": "nike",
+      "category": "shoes"
+    },
+    {
+      "description": "550s",
+      "colour": "white and red",
+      "size": "38",
+      "brand": "new balance",
+      "category": "shoes"
+    }
+  ],
+  "formal" : [
+    {
+      "description": "cassette silk dress",
+      "colour": "red",
+      "size": "small",
+      "brand": "reformation",
+      "category": "formal"
+    },
+    {
+      "description": "nadia maxi satin dress with back cowl",
+      "colour": "yellow",
+      "size": "small",
+      "brand": "meshki",
+      "category": "formal"
+    }
+  ],
+  "accessories" : [
+    {
+      "description": "sweet alhambra pendant",
+      "colour": "yellow gold",
+      "size": "none",
+      "brand": "van cleef & arpels",
+      "category": "accessories"
+    },
+    {
+      "description": "jade baguette bag",
+      "colour": "white",
+      "size": "none",
+      "brand": "urban outfitters",
+      "category": "accessories"
+    }
+  ],
+  "jackets" : [
+    {
+      "description": "soft hooded coat",
+      "colour": "white",
+      "size": "medium",
+      "brand": "zara",
+      "category": "jackets"
+    },
+    {
+      "description": "faux fur coat",
+      "colour": "beige",
+      "size": "medium",
+      "brand": "urban planet",
+      "category": "jackets"
+    }
+  ],
+  "nameOfCloset": "Jackie's Closet App"
+
+
+}

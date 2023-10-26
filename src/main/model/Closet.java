@@ -1,10 +1,15 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.LinkedList;
 
-public class Closet {
+// this class
+public class Closet implements Writable {
 
-    private final String clothingDescription;
+    private final String nameOfCloset;
     private final LinkedList<ClothingItem> tops;
     private final LinkedList<ClothingItem> bottoms;
     private final LinkedList<ClothingItem> shoes;
@@ -12,9 +17,9 @@ public class Closet {
     private final LinkedList<ClothingItem> accessories;
     private final LinkedList<ClothingItem> jackets;
 
-    public Closet(String clothingDescription) {
+    public Closet(String nameOfCloset) {
 
-        this.clothingDescription = clothingDescription;
+        this.nameOfCloset = nameOfCloset;
         this.tops = new LinkedList<>();
         this.bottoms = new LinkedList<>();
         this.shoes = new LinkedList<>();
@@ -59,28 +64,28 @@ public class Closet {
     // MODIFIES: this
     // EFFECTS: removes a new item of clothing to the closet by description
     public void removeClothingItem(String description, String category) {
-        if (category.equals("Tops")) {
+        if (category.equals("TOPS")) {
             removeClothingItemHelper(description, tops);
-        } else if (category.equals("Bottoms")) {
+        } else if (category.equals("BOTTOMS")) {
             removeClothingItemHelper(description, bottoms);
-        } else if (category.equals("Shoes")) {
+        } else if (category.equals("SHOES")) {
             removeClothingItemHelper(description, shoes);
-        } else if (category.equals("Formal")) {
+        } else if (category.equals("FORMAL")) {
             removeClothingItemHelper(description, formal);
-        } else if (category.equals("Accessories")) {
+        } else if (category.equals("ACCESSORIES")) {
             removeClothingItemHelper(description, accessories);
-        } else if (category.equals("Jackets")) {
+        } else if (category.equals("JACKETS")) {
             removeClothingItemHelper(description, jackets);
         }
     }
 
     // EFFECTS: it removes clothing item from a given list
-    @SuppressWarnings({"checkstyle:NeedBraces", "checkstyle:SuppressWarnings"})
     public void removeClothingItemHelper(String description, LinkedList<ClothingItem> category) {
-        for (ClothingItem c : category)
+        for (ClothingItem c : category) {
             if (c.getDescription().contentEquals(description)) {
                 category.remove(c);
             }
+        }
     }
 
 
@@ -161,6 +166,129 @@ public class Closet {
             }
         }
         return sameColourTops;
+    }
+
+    public int getSizeOfTops() {
+        return tops.size();
+    }
+
+    public int getSizeOfBottoms() {
+        return bottoms.size();
+    }
+
+    public int getSizeOfShoes() {
+        return shoes.size();
+    }
+
+    public int getSizeOfFormal() {
+        return formal.size();
+    }
+
+    public int getSizeOfAccessories() {
+        return accessories.size();
+    }
+
+    public int getSizeOfJackets() {
+        return jackets.size();
+    }
+
+    public LinkedList<ClothingItem> getTops() {
+        return tops;
+    }
+
+    public LinkedList<ClothingItem> getBottoms() {
+        return bottoms;
+    }
+
+    public LinkedList<ClothingItem> getShoes() {
+        return shoes;
+    }
+
+    public LinkedList<ClothingItem> getFormal() {
+        return formal;
+    }
+
+    public LinkedList<ClothingItem> getAccessories() {
+        return accessories;
+    }
+
+    public LinkedList<ClothingItem> getJackets() {
+        return jackets;
+    }
+
+    public String getNameOfCloset() {
+        return nameOfCloset;
+    }
+
+
+    // create a JSONObject to store all tops, bottoms, shoes, formal, accessories, jackets
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("nameOfCloset", nameOfCloset);
+        json.put("tops", topsToJson());
+        json.put("bottoms", bottomsToJson());
+        json.put("shoes", shoesToJson());
+        json.put("formal", formalToJson());
+        json.put("accessories", accessoriesToJson());
+        json.put("jackets", jacketsToJson());
+
+        return json;
+    }
+
+    // helpers to turn each list to JSON
+    private JSONArray topsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (ClothingItem item: tops) {
+            jsonArray.put(item.toJson());
+        }
+        return jsonArray;
+    }
+
+    private JSONArray bottomsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (ClothingItem item: bottoms) {
+            jsonArray.put(item.toJson());
+        }
+        return jsonArray;
+    }
+
+    private JSONArray shoesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (ClothingItem item :  shoes) {
+            jsonArray.put(item.toJson());
+        }
+        return jsonArray;
+    }
+
+    private JSONArray formalToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (ClothingItem item :  formal) {
+            jsonArray.put(item.toJson());
+        }
+        return jsonArray;
+    }
+
+    private JSONArray accessoriesToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (ClothingItem item :  accessories) {
+            jsonArray.put(item.toJson());
+        }
+        return jsonArray;
+    }
+
+    private JSONArray jacketsToJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (ClothingItem item :  jackets) {
+            jsonArray.put(item.toJson());
+        }
+        return jsonArray;
     }
 
 }

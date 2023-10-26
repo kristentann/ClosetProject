@@ -1,0 +1,99 @@
+{
+    "formal": [
+        {
+            "colour": "RED",
+            "size": "SMALL",
+            "description": "CASSETTE SILK DRESS",
+            "category": "FORMAL",
+            "brand": "REFORMATION"
+        },
+        {
+            "colour": "YELLOW",
+            "size": "SMALL",
+            "description": "NADIA MAXI SATIN DRESS WITH BACK COWL",
+            "category": "FORMAL",
+            "brand": "MESHKI"
+        }
+    ],
+    "accessories": [
+        {
+            "colour": "YELLOW GOLD",
+            "size": "NONE",
+            "description": "SWEET ALHAMBRA PENDANT",
+            "category": "ACCESSORIES",
+            "brand": "VAN CLEEF & ARPELS"
+        },
+        {
+            "colour": "WHITE",
+            "size": "NONE",
+            "description": "JADE BAGUETTE BAG",
+            "category": "ACCESSORIES",
+            "brand": "URBAN OUTFITTERS"
+        }
+    ],
+    "tops": [
+        {
+            "colour": "BLACK",
+            "size": "SMALL",
+            "description": "TIE STRAP BUSTIER",
+            "category": "TOPS",
+            "brand": "GARAGE"
+        },
+        {
+            "colour": "WHITE",
+            "size": "SMALL",
+            "description": "REHNA TOP",
+            "category": "TOPS",
+            "brand": "PRINCESS POLLY"
+        }
+    ],
+    "jackets": [
+        {
+            "colour": "WHITE",
+            "size": "MEDIUM",
+            "description": "SOFT HOODED COAT",
+            "category": "JACKETS",
+            "brand": "ZARA"
+        },
+        {
+            "colour": "BEIGE",
+            "size": "MEDIUM",
+            "description": "FAUX FUR COAT",
+            "category": "JACKETS",
+            "brand": "URBAN PLANET"
+        }
+    ],
+    "nameOfCloset": "Jackie's Closet App",
+    "bottoms": [
+        {
+            "colour": "GREY",
+            "size": "SMALL",
+            "description": "BASIC JOGGING PANTS",
+            "category": "BOTTOMS",
+            "brand": "ZARA"
+        },
+        {
+            "colour": "BLACK",
+            "size": "4",
+            "description": "WIDE-LEG PANTS",
+            "category": "BOTTOMS",
+            "brand": "HOLLISTER"
+        }
+    ],
+    "shoes": [
+        {
+            "colour": "PANDA",
+            "size": "38",
+            "description": "DUNKS",
+            "category": "SHOES",
+            "brand": "NIKE"
+        },
+        {
+            "colour": "WHITE AND RED",
+            "size": "38",
+            "description": "550S",
+            "category": "SHOES",
+            "brand": "NEW BALANCE"
+        }
+    ]
+}

@@ -28,9 +28,11 @@ It was during these moments that I yearned for a means to efficiently
 track and manage my clothing collection.
 
 ## User Stories:
-- I want to be able to add clothes to my closet 
-- I want to be able to remove clothes from my closet 
-- I want to be able to sort the clothes in my closet in each category.
-- I want to check if I have a similar clothing piece in my closet
-- I want to know the number of clothes I have in each category.
-- I want to see the tops/ formal wear I have of a certain colour.
+- As a user, I want to be able to add clothes to my closet 
+- As a user, I want to be able to remove clothes from my closet 
+- As a user, I want to be able to sort the clothes in my closet in each category.
+- As a user, I want to check if I have a similar clothing piece in my closet
+- As a user, I want to know the number of clothes I have in each category.
+- As a user, I want to see the tops I have of a certain colour.
+- As a user, I want to be able to save all the clothing items that I added to my closet. 
+- As a user, I want to be able to be able to have the option to load all the clothing items I have in my closet before opening my closet. 
