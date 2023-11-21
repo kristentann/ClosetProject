@@ -152,7 +152,7 @@ public class ClosetApp {
     }
 
     // EFFECTS: saves the closet to file
-    private void saveCloset() {
+    protected void saveCloset() {
         try {
             jsonWriter.open();
             jsonWriter.write(closet);
@@ -165,7 +165,7 @@ public class ClosetApp {
 
     // MODIFIES: this
     // EFFECTS: loads workroom from file
-    private void loadCloset() {
+    protected void loadCloset() {
         try {
             closet = jsonReader.read();
             System.out.println("Loaded " + closet.getNameOfCloset() + " from " + JSON_STORE);

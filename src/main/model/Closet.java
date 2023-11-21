@@ -80,7 +80,7 @@ public class Closet implements Writable {
     }
 
     // EFFECTS: it removes clothing item from a given list
-    public void removeClothingItemHelper(String description, LinkedList<ClothingItem> category) {
+    private void removeClothingItemHelper(String description, LinkedList<ClothingItem> category) {
         for (ClothingItem c : category) {
             if (c.getDescription().contentEquals(description)) {
                 category.remove(c);
