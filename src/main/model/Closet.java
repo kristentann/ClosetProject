@@ -57,6 +57,7 @@ public class Closet implements Writable {
                 jackets.add(item);
                 break;
             default:
+                System.out.println("error");
                 break;
         }
     }

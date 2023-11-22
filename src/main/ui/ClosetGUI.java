@@ -9,7 +9,6 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.sql.SQLOutput;
 
 public class ClosetGUI extends JFrame {
 
@@ -25,11 +24,24 @@ public class ClosetGUI extends JFrame {
     private JButton accessoriesButton;
     private JButton jacketsButton;
 
-    private JTextField description;
+    private JTextField descriptionAdd;
     private JTextField colour;
     private JTextField size;
     private JTextField brand;
-    private JTextField category;
+    private JTextField categoryAdd;
+
+    private JTextField descriptionRemove;
+    private JTextField categoryRemove;
+
+    private JTextField descriptionSimilar;
+    private JTextField categorySimilar;
+
+    private JLabel numT;
+    private JLabel numB;
+    private JLabel numS;
+    private JLabel numF;
+    private JLabel numA;
+    private JLabel numJ;
 
     private JPanel addPanel;
     private JPanel removePanel;
@@ -57,11 +69,17 @@ public class ClosetGUI extends JFrame {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
 
-        description = new JTextField();
+        descriptionAdd = new JTextField();
         colour = new JTextField();
         size = new JTextField();
         brand = new JTextField();
-        category = new JTextField();
+        categoryAdd = new JTextField();
+
+        descriptionRemove = new JTextField();
+        descriptionSimilar = new JTextField();
+
+        categoryRemove = new JTextField();
+        categorySimilar = new JTextField();
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setPreferredSize(new Dimension(5000, 3000));
@@ -81,7 +99,6 @@ public class ClosetGUI extends JFrame {
 
     // EFFECTS: calls helpers to make GUI
     public void createMainFrame() {
-//        addHeaderPanel();
         makeFunctionalButtons();
         makeClosetCategoryButtons();
         buttonFunctionalityFunctions();
@@ -112,6 +129,7 @@ public class ClosetGUI extends JFrame {
         this.add(loadButton);
     }
 
+    // EFFECTS: sets the text and font for function buttons
     private void setTextAndFontsForFunctionButtons() {
         addClothingItemButton.setText("Add Item");
         addClothingItemButton.setFont(new Font("Comic Sans", Font.BOLD,20));
@@ -125,6 +143,7 @@ public class ClosetGUI extends JFrame {
         loadButton.setFont(new Font("Comic Sans", Font.BOLD,20));
     }
 
+    // EFFECTS: sets the bounds for the function buttons
     private void setBoundsForFunctionButtons() {
         addClothingItemButton.setBounds(50, 150, 200,100);
         removeClothingItemButton.setBounds(50, 250, 200, 100);
@@ -154,6 +173,7 @@ public class ClosetGUI extends JFrame {
         this.add(jacketsButton);
     }
 
+    // EFFECTS: sets the text and fonts for the buttons
     private void setTextAndFontsForButtons() {
         topsButton.setText("TOPS");
         topsButton.setFont(new Font("Comic Sans", Font.BOLD,20));
@@ -169,6 +189,7 @@ public class ClosetGUI extends JFrame {
         jacketsButton.setFont(new Font("Comic Sans", Font.BOLD,20));
     }
 
+    // EFFECTS: sets bounds for buttons
     private void setBoundsForButtons() {
         topsButton.setBounds(150, 0, 200, 50);
         bottomsButton.setBounds(345,0,200,50);
@@ -180,11 +201,11 @@ public class ClosetGUI extends JFrame {
 
     // EFFECTS: adds functionality to buttons for the functions
     private void buttonFunctionalityFunctions() {
-        String descriptionClo = description.getText();
+        String descriptionClo = descriptionAdd.getText();
         String colourClo = colour.getText();
         String sizeClo = size.getText();
         String brandClo = brand.getText();
-        String categoryClo = category.getText();
+        String categoryClo = categoryAdd.getText();
 
         ClothingItem item = new ClothingItem(descriptionClo, colourClo, sizeClo, brandClo, categoryClo);
         addClothingItemButtonFunction(item);
@@ -194,6 +215,7 @@ public class ClosetGUI extends JFrame {
         loadButtonFunction();
     }
 
+    // EFFECTS: loadButton function addActionListener
     private void loadButtonFunction() {
         loadButton.addActionListener(e -> closetApp.loadCloset());
 
@@ -210,6 +232,7 @@ public class ClosetGUI extends JFrame {
         loadButton.addActionListener(e -> jacketsPanel.setVisible(false));
     }
 
+    // EFFECTS: saveButton function addActionListener
     private void saveButtonFunction() {
         saveButton.addActionListener(e -> closetApp.saveCloset());
         saveButton.addActionListener(e -> savePanel.setVisible(true));
@@ -225,6 +248,7 @@ public class ClosetGUI extends JFrame {
         saveButton.addActionListener(e -> jacketsPanel.setVisible(false));
     }
 
+    // EFFECTS: similarButton function addActionListener
     private void similarItemButtonFunction(String descriptionClo, String categoryClo) {
         similarItemButton.addActionListener(e -> closet.hasSimilarItem(descriptionClo, categoryClo));
 
@@ -241,6 +265,7 @@ public class ClosetGUI extends JFrame {
         similarItemButton.addActionListener(e -> jacketsPanel.setVisible(false));
     }
 
+    // EFFECTS: removeButton function addActionListener
     private void removeClothingItemButtonFunction(String descriptionClo, String categoryClo) {
         removeClothingItemButton.addActionListener(e -> closet.removeClothingItem(descriptionClo, categoryClo));
         removeClothingItemButton.addActionListener(e -> removePanel.setVisible(true));
@@ -256,6 +281,7 @@ public class ClosetGUI extends JFrame {
         removeClothingItemButton.addActionListener(e -> jacketsPanel.setVisible(false));
     }
 
+    // EFFECTS: addClothingItemButton function addActionListener
     private void addClothingItemButtonFunction(ClothingItem item) {
 //        addClothingItemButton.addActionListener(e -> closet.addClothingItem(item));
 
@@ -289,6 +315,7 @@ public class ClosetGUI extends JFrame {
         jacketsButtonFunction(categoryJackets);
     }
 
+    // EFFECTS: jacketsButton function addActionListener
     private void jacketsButtonFunction(ClothingType categoryJackets) {
         jacketsButton.addActionListener(e -> closet.numberOfClothingInCategory(categoryJackets));
         jacketsButton.addActionListener(e -> jacketsPanel.setVisible(true));
@@ -304,6 +331,7 @@ public class ClosetGUI extends JFrame {
         jacketsButton.addActionListener(e -> accessoriesPanel.setVisible(false));
     }
 
+    // EFFECTS: accessoriesButton function addActionListener
     private void accessoriesButtonFunction(ClothingType categoryAccessories) {
         accessoriesButton.addActionListener(e -> closet.numberOfClothingInCategory(categoryAccessories));
         accessoriesButton.addActionListener(e -> accessoriesPanel.setVisible(true));
@@ -319,6 +347,7 @@ public class ClosetGUI extends JFrame {
         accessoriesButton.addActionListener(e -> jacketsPanel.setVisible(false));
     }
 
+    // EFFECTS: formalButton function addActionListener
     private void formalButtonFunction(ClothingType categoryFormal) {
         formalButton.addActionListener(e -> closet.numberOfClothingInCategory(categoryFormal));
         formalButton.addActionListener(e -> formalPanel.setVisible(true));
@@ -334,6 +363,7 @@ public class ClosetGUI extends JFrame {
         formalButton.addActionListener(e -> jacketsPanel.setVisible(false));
     }
 
+    // EFFECTS: shoesButton function addActionListener
     private void shoesButtonFunction(ClothingType categoryShoes) {
         shoesButton.addActionListener(e -> closet.numberOfClothingInCategory(categoryShoes));
         shoesButton.addActionListener(e -> shoesPanel.setVisible(true));
@@ -349,6 +379,7 @@ public class ClosetGUI extends JFrame {
         shoesButton.addActionListener(e -> jacketsPanel.setVisible(false));
     }
 
+    // EFFECTS: bottomsButton function addActionListener
     private void bottomsButtonFunction(ClothingType categoryBottoms) {
         bottomsButton.addActionListener(e -> closet.numberOfClothingInCategory(categoryBottoms));
         bottomsButton.addActionListener(e -> bottomsPanel.setVisible(true));
@@ -364,6 +395,7 @@ public class ClosetGUI extends JFrame {
         bottomsButton.addActionListener(e -> jacketsPanel.setVisible(false));
     }
 
+    // EFFECTS: topsButton function addActionListener
     private void topsButtonFunction(ClothingType categoryTops) {
         topsButton.addActionListener(e -> closet.numberOfClothingInCategory(categoryTops));
         topsButton.addActionListener(e -> topsPanel.setVisible(true));
@@ -413,31 +445,39 @@ public class ClosetGUI extends JFrame {
 
         newPanel.setBounds(800,150,600,650);
         newPanel.setLayout(new BoxLayout(newPanel, BoxLayout.Y_AXIS));
-        newPanel.add(clothingItemDescription());
+        newPanel.add(addClothingItemDescription());
         newPanel.add(addClothingItemColour());
         newPanel.add(addClothingItemSize());
         newPanel.add(addClothingItemBrand());
-        newPanel.add(clothingItemCategory());
+        newPanel.add(addClothingItemCategory());
 
         newPanel.add(addButton());
 
         return newPanel;
     }
 
+    // EFFECTS: designs the button for the addPanel
     private JButton addButton() {
         JButton button = new JButton();
         button.addActionListener(e -> {
-            String descriptionString = description.getText();
+            // how to make sure description.getText() is grabbing the actual text from the JTextField?
+            String descriptionString = descriptionAdd.getText();
             String colourString = colour.getText();
             String sizeString = size.getText();
             String brandString = brand.getText();
+            String categoryString = categoryAdd.getText();
 
-            String categoryString = category.getText();
-            System.out.println(descriptionString);
-            System.out.println("added");
             ClothingItem item = new ClothingItem(descriptionString, colourString, sizeString,
-                    brandString, categoryString);
+                    brandString, categoryString); // this works when strings are hardcoded
             closet.addClothingItem(item);
+
+            updateTopNumPanel(closet.getSizeOfTops());
+            updateBottomNumPanel(closet.getSizeOfBottoms());
+            updateShoesNumPanel(closet.getSizeOfShoes());
+            updateFormalNumPanel(closet.getSizeOfFormal());
+            updateAccessoriesNumPanel(closet.getSizeOfAccessories());
+            updateJacketsNumPanel(closet.getSizeOfJackets());
+
         });
         button.setText("ADD ITEM");
 
@@ -445,18 +485,20 @@ public class ClosetGUI extends JFrame {
     }
 
     // EFFECTS: creates Label and TextField to input the description
-    private JPanel clothingItemDescription() {
+    private JPanel addClothingItemDescription() {
         JPanel addDescription = new JPanel();
 
         JLabel descriptionText = new JLabel();
         descriptionText.setText("Description: ");
-
-        description = new JTextField();
-        description.setPreferredSize(new Dimension(500,25));
-        description.addActionListener(e -> description.getAction());
+        descriptionAdd = new JTextField();
+        descriptionAdd.setPreferredSize(new Dimension(500,25));
+        descriptionAdd.addActionListener(e -> {
+            descriptionAdd.getAction();
+            System.out.println(descriptionAdd.getText());
+        });
 
         addDescription.add(descriptionText);
-        addDescription.add(description);
+        addDescription.add(descriptionAdd);
 
         return addDescription;
     }
@@ -513,18 +555,18 @@ public class ClosetGUI extends JFrame {
     }
 
     // EFFECTS: creates Label and TextField to input the category
-    private JPanel clothingItemCategory() {
+    private JPanel addClothingItemCategory() {
         JPanel addCategory = new JPanel();
 
         JLabel categoryText = new JLabel();
         categoryText.setText("Category: ");
 
-        category = new JTextField();
-        category.setPreferredSize(new Dimension(200, 25));
-        category.addActionListener(e -> category.getAction());
+        categoryAdd = new JTextField();
+        categoryAdd.setPreferredSize(new Dimension(200, 25));
+        categoryAdd.addActionListener(e -> categoryAdd.getAction());
 
         addCategory.add(categoryText);
-        addCategory.add(category);
+        addCategory.add(categoryAdd);
 
         return addCategory;
     }
@@ -558,13 +600,23 @@ public class ClosetGUI extends JFrame {
         this.add(removePanel);
     }
 
+    // EFFECTS: designs the button for the remove panel
     private JButton removeButton() {
         JButton button = new JButton();
 
-        String descriptionString = description.getText();
-        String categoryString = category.getText();
+        button.addActionListener(e -> {
+            String descriptionString = descriptionRemove.getText();
+            String categoryString = categoryRemove.getText();
 
-        button.addActionListener(e -> closet.removeClothingItem(descriptionString, categoryString));
+            closet.removeClothingItem(descriptionString, categoryString);
+
+            updateTopNumPanel(closet.getSizeOfTops());
+            updateBottomNumPanel(closet.getSizeOfBottoms());
+            updateShoesNumPanel(closet.getSizeOfShoes());
+            updateFormalNumPanel(closet.getSizeOfFormal());
+            updateAccessoriesNumPanel(closet.getSizeOfAccessories());
+            updateJacketsNumPanel(closet.getSizeOfJackets());
+        });
         button.setText("REMOVE ITEM");
 
         return button;
@@ -576,13 +628,51 @@ public class ClosetGUI extends JFrame {
 
         newPanel.setBounds(800,150,600,650);
         newPanel.setLayout(new BoxLayout(newPanel, BoxLayout.Y_AXIS));
-        newPanel.add(clothingItemDescription());
-        newPanel.add(clothingItemCategory());
+        newPanel.add(removeClothingItemDescription());
+        newPanel.add(removeClothingItemCategory());
 
         newPanel.add(removeButton());
 
         return newPanel;
     }
+
+    // EFFECTS: creates Label and TextField to input the description
+    private JPanel removeClothingItemDescription() {
+        JPanel removeDescription = new JPanel();
+
+        JLabel descriptionText = new JLabel();
+        descriptionText.setText("Description: ");
+
+        descriptionRemove = new JTextField();
+        descriptionRemove.setPreferredSize(new Dimension(500,25));
+        descriptionRemove.addActionListener(e -> {
+            descriptionRemove.getAction();
+            System.out.println(descriptionRemove.getText());
+        });
+
+        removeDescription.add(descriptionText);
+        removeDescription.add(descriptionRemove);
+
+        return removeDescription;
+    }
+
+
+    private JPanel removeClothingItemCategory() {
+        JPanel removeCategory = new JPanel();
+
+        JLabel categoryText = new JLabel();
+        categoryText.setText("Category: ");
+
+        categoryRemove = new JTextField();
+        categoryRemove.setPreferredSize(new Dimension(200, 25));
+        categoryRemove.addActionListener(e -> categoryRemove.getAction());
+
+        removeCategory.add(categoryText);
+        removeCategory.add(categoryRemove);
+
+        return removeCategory;
+    }
+
 
     // EFFECTS: adds the closed closet graphic
     private JLabel removeClothingItemGraphicsLabel() {
@@ -611,6 +701,7 @@ public class ClosetGUI extends JFrame {
 
     }
 
+    // EFFECTS: adds the graphic for the similarItem panel
     private JLabel similarItemGraphicsLabel() {
         ImageIcon closet = new ImageIcon("./src/main/ui/guiPics/similar.png");
         Image clo = closet.getImage();
@@ -624,29 +715,76 @@ public class ClosetGUI extends JFrame {
         return label;
     }
 
+    // EFFECTS: adds additional panel to the similarItem content
     private JPanel similarItemContentLabel() {
         JPanel newPanel = new JPanel();
 
         newPanel.setBounds(800,150,600,650);
         newPanel.setLayout(new BoxLayout(newPanel, BoxLayout.Y_AXIS));
-        newPanel.add(clothingItemDescription());
-        newPanel.add(clothingItemCategory());
+        newPanel.add(similarClothingItemDescription());
+        newPanel.add(similarClothingItemCategory());
         newPanel.add(similarButton());
 
         return newPanel;
     }
 
+    // EFFECTS: creates Label and TextField to input the description
+    private JPanel similarClothingItemDescription() {
+        JPanel similarDescription = new JPanel();
+
+        JLabel descriptionText = new JLabel();
+        descriptionText.setText("Description: ");
+
+        descriptionSimilar = new JTextField();
+        descriptionSimilar.setPreferredSize(new Dimension(500,25));
+        descriptionSimilar.addActionListener(e -> {
+            descriptionSimilar.getAction();
+            System.out.println(descriptionSimilar.getText());
+        });
+
+        similarDescription.add(descriptionText);
+        similarDescription.add(descriptionSimilar);
+
+        return similarDescription;
+    }
+
+    private JPanel similarClothingItemCategory() {
+        JPanel similarCategory = new JPanel();
+
+        JLabel categoryText = new JLabel();
+        categoryText.setText("Category: ");
+
+        categorySimilar = new JTextField();
+        categorySimilar.setPreferredSize(new Dimension(200, 25));
+        categorySimilar.addActionListener(e -> categorySimilar.getAction());
+
+        similarCategory.add(categoryText);
+        similarCategory.add(categorySimilar);
+
+        return similarCategory;
+    }
+
+    // EFFECTS: creates a button for the similarItem panel
     private JButton similarButton() {
         JButton button = new JButton();
 
-        String descriptionString = description.getText();
-        String categoryString = category.getText();
+        String descriptionString = descriptionAdd.getText();
+        String categoryString = categoryAdd.getText();
 
-        button.addActionListener(e -> closet.hasSimilarItem(descriptionString, categoryString));
+        button.addActionListener(e -> {
+            if (closet.hasSimilarItem(descriptionString, categoryString)) {
+                button.setBackground(Color.green); // placeholders
+            } else  {
+                button.setBackground(Color.red); // placeholders
+            }
+        });
+
         button.setText("CHECK SIMILAR ITEM");
 
         return button;
     }
+
+    // make a new a global label to update the
 
     // EFFECTS: create panel for save closet
     private void saveClosetPanel() {
@@ -689,20 +827,25 @@ public class ClosetGUI extends JFrame {
         return label;
     }
 
+
     // EFFECTS: create panel for num of tops
     private void topsNumberPanel() {
         topsPanel = new JPanel();
         topsPanel.setBounds(150,50,200,35);
         topsPanel.setVisible(false);
-        System.out.println(closet.getTops());
         int numTops = closet.getTops().size();
 
-        JLabel numT = new JLabel(String.valueOf(numTops));
+        numT = new JLabel(String.valueOf(numTops));
         topsPanel.add(numT);
 
         this.add(topsPanel);
     }
 
+
+    private void updateTopNumPanel(int tops) {
+        numT.setText(Integer.toString(tops));
+
+    }
 
     // EFFECTS: create panel for num of bottoms
     private void bottomsNumberPanel() {
@@ -711,10 +854,14 @@ public class ClosetGUI extends JFrame {
         bottomsPanel.setVisible(false);
         int numBottoms = closet.getBottoms().size();
 
-        JLabel numB = new JLabel(String.valueOf(numBottoms));
+        numB = new JLabel(String.valueOf(numBottoms));
         bottomsPanel.add(numB);
 
         this.add(bottomsPanel);
+    }
+
+    private void updateBottomNumPanel(int bottoms) {
+        numB.setText(Integer.toString(bottoms));
     }
 
     // EFFECTS: create panel for num of shoes
@@ -724,10 +871,14 @@ public class ClosetGUI extends JFrame {
         shoesPanel.setVisible(false);
         int numShoes = closet.getShoes().size();
 
-        JLabel numS = new JLabel(String.valueOf(numShoes));
+        numS = new JLabel(String.valueOf(numShoes));
         shoesPanel.add(numS);
 
         this.add(shoesPanel);
+    }
+
+    private void updateShoesNumPanel(int shoes) {
+        numS.setText(Integer.toString(shoes));
     }
 
     // EFFECTS: create panel for num of formal
@@ -737,10 +888,14 @@ public class ClosetGUI extends JFrame {
         formalPanel.setVisible(false);
         int numFormal = closet.getFormal().size();
 
-        JLabel numF = new JLabel(String.valueOf(numFormal));
+        numF = new JLabel(String.valueOf(numFormal));
         formalPanel.add(numF);
 
         this.add(formalPanel);
+    }
+
+    private void updateFormalNumPanel(int formal) {
+        numF.setText(Integer.toString(formal));
     }
 
     // EFFECTS: create panel for num of accessories
@@ -750,11 +905,15 @@ public class ClosetGUI extends JFrame {
         accessoriesPanel.setVisible(false);
         int numAccessories = closet.getAccessories().size();
 
-        JLabel numA = new JLabel(String.valueOf(numAccessories));
+        numA = new JLabel(String.valueOf(numAccessories));
         accessoriesPanel.add(numA);
 
         this.add(accessoriesPanel);
 
+    }
+
+    private void updateAccessoriesNumPanel(int accessories) {
+        numA.setText(Integer.toString(accessories));
     }
 
     // EFFECTS: create panel for num of jackets
@@ -764,10 +923,14 @@ public class ClosetGUI extends JFrame {
         jacketsPanel.setVisible(false);
         int numJackets = closet.getJackets().size();
 
-        JLabel numJ = new JLabel(String.valueOf(numJackets));
+        numJ = new JLabel(String.valueOf(numJackets));
         jacketsPanel.add(numJ);
 
         this.add(jacketsPanel);
+    }
+
+    private void updateJacketsNumPanel(int jackets) {
+        numJ.setText(Integer.toString(jackets));
     }
 
 
