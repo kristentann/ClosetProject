@@ -69,17 +69,7 @@ public class ClosetGUI extends JFrame {
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
 
-        descriptionAdd = new JTextField();
-        colour = new JTextField();
-        size = new JTextField();
-        brand = new JTextField();
-        categoryAdd = new JTextField();
-
-        descriptionRemove = new JTextField();
-        descriptionSimilar = new JTextField();
-
-        categoryRemove = new JTextField();
-        categorySimilar = new JTextField();
+        initialisation();
 
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setPreferredSize(new Dimension(5000, 3000));
@@ -95,6 +85,21 @@ public class ClosetGUI extends JFrame {
         });
 
         createMainFrame();
+    }
+
+    // initialise fields
+    private void initialisation() {
+        descriptionAdd = new JTextField();
+        colour = new JTextField();
+        size = new JTextField();
+        brand = new JTextField();
+        categoryAdd = new JTextField();
+
+        descriptionRemove = new JTextField();
+        descriptionSimilar = new JTextField();
+
+        categoryRemove = new JTextField();
+        categorySimilar = new JTextField();
     }
 
     // EFFECTS: calls helpers to make GUI
