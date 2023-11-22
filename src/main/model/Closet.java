@@ -34,6 +34,7 @@ public class Closet implements Writable {
     // written below and must be uppercase
     // MODIFIES: this
     // EFFECTS: adds a new item of clothing to the closet
+    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public void addClothingItem(ClothingItem item) {
         ClothingItem item1 = item;
 
