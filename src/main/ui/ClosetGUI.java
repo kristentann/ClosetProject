@@ -465,7 +465,6 @@ public class ClosetGUI extends JFrame {
     private JButton addButton() {
         JButton button = new JButton();
         button.addActionListener(e -> {
-            // how to make sure description.getText() is grabbing the actual text from the JTextField?
             String descriptionString = descriptionAdd.getText();
             String colourString = colour.getText();
             String sizeString = size.getText();
@@ -473,7 +472,7 @@ public class ClosetGUI extends JFrame {
             String categoryString = categoryAdd.getText();
 
             ClothingItem item = new ClothingItem(descriptionString, colourString, sizeString,
-                    brandString, categoryString); // this works when strings are hardcoded
+                    brandString, categoryString);
             closet.addClothingItem(item);
 
             updateTopNumPanel(closet.getSizeOfTops());
@@ -753,6 +752,7 @@ public class ClosetGUI extends JFrame {
         return similarDescription;
     }
 
+    // EFFECTS: create Label and TextField to input the category
     private JPanel similarClothingItemCategory() {
         JPanel similarCategory = new JPanel();
 
