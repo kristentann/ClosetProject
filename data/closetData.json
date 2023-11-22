@@ -1,9 +1,15 @@
 {
     "formal": [],
     "accessories": [],
-    "tops": [],
+    "tops": [{
+        "colour": "",
+        "size": "",
+        "description": "HANNAH",
+        "category": "TOPS",
+        "brand": ""
+    }],
     "jackets": [],
-    "nameOfCloset": "My Closet ",
+    "nameOfCloset": "My Closet",
     "bottoms": [],
     "shoes": []
 }
