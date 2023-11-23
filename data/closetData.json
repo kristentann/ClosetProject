@@ -1,13 +1,13 @@
 {
     "formal": [],
-    "accessories": [],
-    "tops": [{
+    "accessories": [{
         "colour": "",
         "size": "",
-        "description": "HANNAH",
-        "category": "TOPS",
+        "description": "XX",
+        "category": "ACCESSORIES",
         "brand": ""
     }],
+    "tops": [],
     "jackets": [],
     "nameOfCloset": "My Closet",
     "bottoms": [],

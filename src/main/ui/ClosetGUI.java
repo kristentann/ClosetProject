@@ -267,7 +267,7 @@ public class ClosetGUI extends JFrame {
     private void saveButtonFunction() {
         saveButton.addActionListener(e -> {
             try {
-                saveAndQuit();
+                save();
             } catch (FileNotFoundException ex) {
                 throw new RuntimeException(ex);
             }
@@ -285,11 +285,12 @@ public class ClosetGUI extends JFrame {
         saveButton.addActionListener(e -> jacketsPanel.setVisible(false));
     }
 
-    private void saveAndQuit() throws FileNotFoundException {
+    // EFFECTS: save the closet
+    private void save() throws FileNotFoundException {
         jsonWriter.open();
         jsonWriter.write(closet);
         jsonWriter.close();
-        System.exit(0);
+//        System.exit(0);
 
     }
 
