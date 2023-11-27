@@ -1,15 +1,21 @@
 {
     "formal": [],
-    "accessories": [{
-        "colour": "",
-        "size": "",
-        "description": "XX",
-        "category": "ACCESSORIES",
-        "brand": ""
+    "accessories": [],
+    "tops": [{
+        "colour": "MAROON",
+        "size": "S",
+        "description": "SWEATER",
+        "category": "TOPS",
+        "brand": "ARITZIA"
     }],
-    "tops": [],
     "jackets": [],
     "nameOfCloset": "My Closet",
-    "bottoms": [],
+    "bottoms": [{
+        "colour": "BLUE",
+        "size": "M",
+        "description": "JEANS",
+        "category": "BOTTOMS",
+        "brand": "LEVIS"
+    }],
     "shoes": []
 }

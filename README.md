@@ -35,4 +35,13 @@ track and manage my clothing collection.
 - As a user, I want to know the number of clothes I have in each category.
 - As a user, I want to see the tops I have of a certain colour.
 - As a user, I want to be able to save all the clothing items that I added to my closet. 
-- As a user, I want to be able to be able to have the option to load all the clothing items I have in my closet before opening my closet. 
+- As a user, I want to be able to be able to have the option to load all the clothing items I have in my closet before 
+- opening my closet. 
+
+## Phase 4: Task 3:
+- If I had more time to work on this project, I would include more functionality into the GUI
+- Due to my limited amount of time, I had to disregard one of my user stories that was functional in my console
+- I wish for the future, I will be able to utilise more JSwing components to make a more elaborate design for my GUI as
+- well as maximise the potential of my project, in this project I had to use a somewhat similar format for each
+- Also, I also wish for the future that I will be able to make a button to reset all the user input, for example in the
+- addClothing panel, each textField has to be manually deleted by the user in order to add a new item to their closet. 
