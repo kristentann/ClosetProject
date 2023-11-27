@@ -1,8 +1,6 @@
 package ui;
 
-import model.Closet;
-import model.ClothingItem;
-import model.ClothingType;
+import model.*;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
@@ -85,6 +83,7 @@ public class ClosetApp {
         System.out.println("6. Save Closet to file");
         System.out.println("7. Load Closet from file");
         System.out.println("8. Exit");
+        printLog();
         System.out.print("Enter your choice: ");
     }
 
@@ -104,6 +103,7 @@ public class ClosetApp {
         ClothingItem item = new ClothingItem(description, colour, size, brand, category);
         closet.addClothingItem(item);
         System.out.println("Clothing item added to the closet.");
+        EventLog.getInstance().logEvent(new Event("Added a new clothing item " + item));
     }
 
     // enables users to remove clothing items from their closet
@@ -115,6 +115,7 @@ public class ClosetApp {
 
         closet.removeClothingItem(description, category);
         System.out.println("Clothing item removed from the closet.");
+        EventLog.getInstance().logEvent(new Event("Removed a clothing item " + description));
     }
 
     // allows users to check the number of items inside each category then displays the amount
@@ -173,6 +174,13 @@ public class ClosetApp {
             System.out.println("Unable to read from file: " + JSON_STORE);
         }
 
+    }
+
+    // EFFECTS: prints out all the events within log
+    public void printLog() {
+        for (Event next : EventLog.getInstance()) {
+            System.out.println(next.toString() + "/n");
+        }
     }
 }
 
