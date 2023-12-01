@@ -82,7 +82,7 @@ public class ClosetApp {
         System.out.println("6. Save Closet to file");
         System.out.println("7. Load Closet from file");
         System.out.println("8. Exit");
-        printLog();
+//        printLog(EventLog.getInstance());
         System.out.print("Enter your choice: ");
     }
 
@@ -157,7 +157,6 @@ public class ClosetApp {
             jsonWriter.open();
             jsonWriter.write(closet);
             jsonWriter.close();
-            printLog();
             System.out.println("Saved " + closet.getNameOfCloset() + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
@@ -176,11 +175,12 @@ public class ClosetApp {
 
     }
 
-    // EFFECTS: prints out all the events within log
-    public static void printLog() {
-        for (Event next : EventLog.getInstance()) {
-            System.out.println(next.toString() + "/n");
-        }
-    }
+//    // EFFECTS: prints out all the events within log
+//    public void printLog(EventLog instance) {
+//        for (Event next : EventLog.getInstance()) {
+//            System.out.println(next.toString() + "/n");
+//        }
+//    }
+
 }
 

@@ -9,10 +9,11 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class ClosetGUI extends JFrame {
+public class ClosetGUI extends JFrame implements WindowListener {
 
     private JButton addClothingItemButton;
     private JButton removeClothingItemButton;
@@ -87,6 +88,13 @@ public class ClosetGUI extends JFrame {
             @Override
             public void windowOpened(WindowEvent e) {
                 super.windowOpened(e);
+            }
+
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.out.println("hey");
+                LogPrinter logPrinter = new LogPrinter();
+                logPrinter.printLog(EventLog.getInstance());
             }
         });
 
@@ -290,9 +298,6 @@ public class ClosetGUI extends JFrame {
         jsonWriter.open();
         jsonWriter.write(closet);
         jsonWriter.close();
-        System.exit(0);
-        ClosetApp.printLog();
-
     }
 
 
@@ -496,6 +501,8 @@ public class ClosetGUI extends JFrame {
             updateFormalNumPanel(closet.getSizeOfFormal());
             updateAccessoriesNumPanel(closet.getSizeOfAccessories());
             updateJacketsNumPanel(closet.getSizeOfJackets());
+
+
 
             this.added.setText("A new clothing item was added");
 
@@ -994,5 +1001,43 @@ public class ClosetGUI extends JFrame {
     // EFFECTS: opens the GUI
     public static void main(String[] args) {
         new ClosetGUI();
+    }
+
+    @Override
+    public void windowOpened(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        System.out.println("hey");
+        LogPrinter logPrinter = new LogPrinter();
+        logPrinter.printLog(EventLog.getInstance());
+
+    }
+
+    @Override
+    public void windowClosed(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowIconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowActivated(WindowEvent e) {
+
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent e) {
+
     }
 }

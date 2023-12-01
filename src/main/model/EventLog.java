@@ -35,12 +35,16 @@ public class EventLog implements Iterable<Event> {
         return theLog;
     }
 
+    public static void getInstance(Event event) {
+    }
+
     /**
      * Adds an event to the event log.
      * @param e the event to be added
      */
     public void logEvent(Event e) {
         events.add(e);
+
     }
 
     /**

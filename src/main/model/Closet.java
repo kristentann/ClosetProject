@@ -16,6 +16,7 @@ public class Closet implements Writable {
     private final LinkedList<ClothingItem> formal;
     private final LinkedList<ClothingItem> accessories;
     private final LinkedList<ClothingItem> jackets;
+    private EventLog eventLog;
 
     public Closet(String nameOfCloset) {
 
@@ -61,6 +62,7 @@ public class Closet implements Writable {
                 System.out.println("error");
                 break;
         }
+        EventLog.getInstance().logEvent(new Event("Added new clothing item" + item));
     }
 
     // MODIFIES: this
@@ -79,6 +81,7 @@ public class Closet implements Writable {
         } else if (category.equals("JACKETS")) {
             removeClothingItemHelper(description, jackets);
         }
+        EventLog.getInstance().logEvent(new Event("removed new clothing item" + description));
     }
 
     // EFFECTS: it removes clothing item from a given list
