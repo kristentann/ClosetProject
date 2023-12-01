@@ -29,7 +29,6 @@ public class ClosetApp {
     public void start() {
         System.out.println("Please enter your name: ");
         String userName = scanner.nextLine();
-
         System.out.println("Welcome to the " + userName + "'s Closet Organiser");
         boolean running = true;
 
@@ -158,6 +157,7 @@ public class ClosetApp {
             jsonWriter.open();
             jsonWriter.write(closet);
             jsonWriter.close();
+            printLog();
             System.out.println("Saved " + closet.getNameOfCloset() + " to " + JSON_STORE);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + JSON_STORE);
