@@ -290,9 +290,12 @@ public class ClosetGUI extends JFrame {
         jsonWriter.open();
         jsonWriter.write(closet);
         jsonWriter.close();
-//        System.exit(0);
+        System.exit(0);
+        ClosetApp.printLog();
 
     }
+
+
 
     // EFFECTS: similarButton function addActionListener
     private void similarItemButtonFunction(String descriptionClo, String categoryClo) {

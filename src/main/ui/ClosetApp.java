@@ -177,7 +177,7 @@ public class ClosetApp {
     }
 
     // EFFECTS: prints out all the events within log
-    public void printLog() {
+    public static void printLog() {
         for (Event next : EventLog.getInstance()) {
             System.out.println(next.toString() + "/n");
         }
